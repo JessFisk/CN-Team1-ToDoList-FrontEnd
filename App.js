@@ -70,15 +70,17 @@ function App() {
         <ul></ul>
         <span onClick={(event) => handleDeleteTodo(event, _id)}>X</span>
     </div>
-    
+
     <div className='TextArea'>
       <h3 id='InputHeader'>Type new task here</h3>
       <input>user will type task here</input>
       <button type='submit'>Add new task</button>
     </div>
   </div>
-    
-    
+  
+  <div className='Footer'>
+  <h1> Sweet Footer</h1>
+  </div>  
     
     
   </div>
