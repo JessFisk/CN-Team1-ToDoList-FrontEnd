@@ -3,6 +3,8 @@ import React, {useState, useEffect} from 'react';
 // import {authCheck} from "./src/utils";
 // import {getTokenFromCookie} from "./src/utils";
 
+import HeaderTitle from './src/components/header/Header';
+
 function App() {
   const [user, setuser] = useState({
     username: null,
@@ -34,7 +36,22 @@ function App() {
     // await setUser(persistentUser.user)
   }
 
-  
+  const logOut = (e) => {
+    e.preventdefault()
+    setUser({
+      username: null,
+      email: null,
+      token: null,
+    });
+    setusers(null);
+    // document.cookie = "jwt_token=;" double check the code for this
+  };
+
+  const submitHandler = async (e) => {
+    e.preventdefault();
+    const cookieName = "jwt_token";
+    setusers(await getAllUsers) //check - do we need multiple submitHandlers?
+  }
   return (
   <div className='App-wrapper'>
 
@@ -42,9 +59,7 @@ function App() {
       <p>{user.username} is logged in</p>
     </div>
 
-    <div className='title'>
-      <h1> Team 1 To-Do List App</h1>
-    </div>
+    <div HeaderTitle></div>
 
     <div className='LogOrSigninContainer'>
       <div className='registerBox'>
