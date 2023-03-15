@@ -3,8 +3,8 @@ import React, {useState, useEffect} from 'react';
 // import {authCheck} from "./src/utils";
 // import {getTokenFromCookie} from "./src/utils";
 
-import HeaderTitle from './src/components/header/Header';
-import testLogContainer from "./components/logOrSignContainer";
+import HeaderTitle from './components/header/Header';
+import TestLogContainer from './components/logOrSignContainer/LogOrSignContainer';
 
 function App() {
   const [user, setuser] = useState({
@@ -32,40 +32,43 @@ function App() {
   //   } 
   // }, []);
 
-  const loginWithToken = async (token) => {
+  // const loginWithToken = async (token) => {
     // const persistentUser = await authCheck(token);
     // await setUser(persistentUser.user)
-  }
+  // }
 
-  const logOut = (e) => {
-    e.preventdefault()
-    setUser({
-      username: null,
-      email: null,
-      token: null,
-    });
-    setusers(null);
+  // const logOut = (e) => {
+  //   e.preventdefault()
+  //   setUser({
+  //     username: null,
+  //     email: null,
+  //     token: null,
+  //   });
+  //   setusers(null);
     // document.cookie = "jwt_token=;" double check the code for this
-  };
+  // };
 
-  const submitHandler = async (e) => {
-    e.preventdefault();
-    const cookieName = "jwt_token";
-    setusers(await getAllUsers) //check - do we need multiple submitHandlers?
-  }
+  // const submitHandler = async (e) => {
+  //   e.preventdefault();
+  //   const cookieName = "jwt_token";
+  //   setusers(await getAllUsers) //check - do we need multiple submitHandlers?
+  // }
+  
   return (
   <div className='App-wrapper'>
-
-    <div className='login-display'>
-      <p>{user.username} is logged in</p>
-    </div>
-
+    
     <div className='Header-Wrap'>
       <HeaderTitle />
     </div>
 
+    <div className='login-display'>
+      <p> Placeholder is logged in</p>
+    </div>
+
+
+
     <div className='TestLoginContainer'>
-    <testLogContainer />
+      <TestLogContainer/>
     </div>
     
     <div className='ToDoContainer'>

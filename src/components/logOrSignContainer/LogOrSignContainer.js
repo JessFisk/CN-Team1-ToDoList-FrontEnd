@@ -18,7 +18,7 @@
 // }
 // export default LogOrSigninContainer;
 
-const testLogContainer = () => {
+const TestLogContainer = () => {
   return (
     <div className="LogOrSign-Wrapper">
     <div className="RegisterDesignTest">
@@ -51,7 +51,7 @@ const testLogContainer = () => {
   )
 }
 
-export default testLogContainer
+export default TestLogContainer
 
 {/* <div className='LogOrSigninContainer'>
       <div className='registerBox'>

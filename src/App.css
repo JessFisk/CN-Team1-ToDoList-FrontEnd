@@ -1,0 +1,41 @@
+.App-wrapper {
+    background-color:navajowhite;
+    display: flex;
+    /* justify-content: center; */
+    align-items:center;
+    flex-direction: column;
+}
+
+.login-display {
+    font-size: 20px;
+    border: solid 2px blue
+}
+
+.Header-Wrap {
+    border: 3px burlywood double;
+}
+
+.TestLoginContainer {
+    border: red 3px solid;
+
+}
+
+.ToDoContainer {
+    border: solid 2px green;
+}
+
+.ActiveToDo {
+    border:purple solid 2px;
+}
+
+.DoneToDo {
+    border: gray solid 3px;
+}
+
+.TextArea {
+    border: midnightblue solid 3px;
+}
+
+.Footer {
+    border: pink solid 3px;
+}
