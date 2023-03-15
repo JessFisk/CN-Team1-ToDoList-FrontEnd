@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import APIHelper from "./APIHelper.js";
+import APIHelper from "./connection.js";
 
 function App() {
   const [todos, setTodos] = useState([]);
