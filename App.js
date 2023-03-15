@@ -1,7 +1,39 @@
 import './App.css';
+import React, {useState, useEffect} from 'react';
+// import {authCheck} from "./src/utils";
+import {getTokenFromCookie} from "./src/utils";
 
 function App() {
-  
+  const [user, setuser] = useState({
+    username: null,
+    email: null,
+    password: null,
+  });
+  const [users, setusers] = useState();
+
+  const [ActiveToDo, setActiveToDo] = useState();
+
+  useEffect(() =>{
+    if (document.cookie){
+      let token = getTokenFromCookie("jwt");
+    
+    if (token ===false) {
+      setuser({
+        username: null,
+        email: null,
+        password: null,
+      });
+    } else {
+      loginWithToken(token)
+    }
+    } 
+  }, []);
+
+  const loginWithToken = async (token) => {
+    const persistentUser = await authCheck(token);
+    await setUser(persistentUser.user)
+  }
+
   
   return (
   <div className='App-wrapper'>
@@ -47,22 +79,6 @@ function App() {
     <div className='ToDoContainer'>
       <div className='ActiveToDo'>
         <h3 id='ActiveToDoHeader'>Active To-Do List</h3> 
-       <ul>
-        {todos.length ? (
-          todos.map(({ _id, task, completed }, index) => (
-            <li
-              key={_id}
-              onClick={(event) => handleUpdateTodo(event, _id)}
-              className={completed ? "completed" : ""}
-            >
-              {task}{" "}
-              <span onClick={(event) => handleDeleteTodo(event, _id)}>X</span>
-            </li>
-          ))
-        ) : (
-          <p>No tasks yet</p>
-        )}
-      </ul>
       </div>
 
     <div className='DoneToDo'>
