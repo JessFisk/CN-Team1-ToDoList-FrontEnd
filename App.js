@@ -9,7 +9,7 @@ function App() {
     email: null,
     password: null,
   });
-  const [users, setuser] = useState();
+  const [users, setusers] = useState();
 
   const [ActiveToDo, setActiveToDo] = useState();
 
@@ -28,6 +28,11 @@ function App() {
     }
     } 
   }, []);
+
+  const loginWithToken = async (token) => {
+    const persistentUser = await authCheck(token);
+    await setUser(persistentUser.user)
+  }
 
   
   return (
