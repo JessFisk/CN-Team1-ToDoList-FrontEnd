@@ -1,10 +1,34 @@
 import './App.css';
 import React, {useState, useEffect} from 'react';
 // import {authCheck} from "./src/utils";
-// import {getTokenFromCookie} from "./src/utils";
+import {getTokenFromCookie} from "./src/utils";
 
 function App() {
-  
+  const [user, setuser] = useState({
+    username: null,
+    email: null,
+    password: null,
+  });
+  const [users, setuser] = useState();
+
+  const [ActiveToDo, setActiveToDo] = useState();
+
+  useEffect(() =>{
+    if (document.cookie){
+      let token = getTokenFromCookie("jwt");
+    
+    if (token ===false) {
+      setuser({
+        username: null,
+        email: null,
+        password: null,
+      });
+    } else {
+      loginWithToken(token)
+    }
+    } 
+  }, []);
+
   
   return (
   <div className='App-wrapper'>
