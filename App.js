@@ -3,6 +3,8 @@ import React, {useState, useEffect} from 'react';
 // import {authCheck} from "./src/utils";
 import {getTokenFromCookie} from "./src/utils";
 
+import HeaderTitle from './src/components/header/Header';
+
 function App() {
   const [user, setuser] = useState({
     username: null,
@@ -57,9 +59,7 @@ function App() {
       <p>{user.username} is logged in</p>
     </div>
 
-    <div className='title'>
-      <h1> Team 1 To-Do List App</h1>
-    </div>
+    <div HeaderTitle></div>
 
     <div className='LogOrSigninContainer'>
       <div className='registerBox'>
