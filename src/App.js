@@ -1,7 +1,7 @@
 import './App.css';
 import React, {useState, useEffect} from 'react';
 // import {authCheck} from "./src/utils";
-import {getTokenFromCookie} from "./src/utils";
+// import {getTokenFromCookie} from "./src/utils";
 
 import HeaderTitle from './src/components/header/Header';
 
@@ -15,25 +15,25 @@ function App() {
 
   const [ActiveToDo, setActiveToDo] = useState();
 
-  useEffect(() =>{
-    if (document.cookie){
-      let token = getTokenFromCookie("jwt");
+  // useEffect(() =>{
+  //   if (document.cookie){
+  //     let token = getTokenFromCookie("jwt");
     
-    if (token ===false) {
-      setuser({
-        username: null,
-        email: null,
-        password: null,
-      });
-    } else {
-      loginWithToken(token)
-    }
-    } 
-  }, []);
+  //   if (token ===false) {
+  //     setuser({
+  //       username: null,
+  //       email: null,
+  //       password: null,
+  //     });
+  //   } else {
+  //     loginWithToken(token)
+  //   }
+  //   } 
+  // }, []);
 
   const loginWithToken = async (token) => {
-    const persistentUser = await authCheck(token);
-    await setUser(persistentUser.user)
+    // const persistentUser = await authCheck(token);
+    // await setUser(persistentUser.user)
   }
 
   const logOut = (e) => {
@@ -99,12 +99,12 @@ function App() {
     <div className='DoneToDo'>
         <h3 id='DoneToDoHeader'>Done To-Do List </h3>
         <ul></ul>
-        <span onClick={(event) => handleDeleteTodo(event, _id)}>X</span>
+        {/* <span onClick={(event) => handleDeleteTodo(event, _id)}>X</span> */}
     </div>
 
     <div className='TextArea'>
       <h3 id='InputHeader'>Type new task here</h3>
-      <input>user will type task here</input>
+      {/* <input>user will type task here</input> */}
       <button type='submit'>Add new task</button>
     </div>
   </div>
