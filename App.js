@@ -34,7 +34,22 @@ function App() {
     await setUser(persistentUser.user)
   }
 
-  
+  const logOut = (e) => {
+    e.preventdefault()
+    setUser({
+      username: null,
+      email: null,
+      token: null,
+    });
+    setusers(null);
+    // document.cookie = "jwt_token=;" double check the code for this
+  };
+
+  const submitHandler = async (e) => {
+    e.preventdefault();
+    const cookieName = "jwt_token";
+    setusers(await getAllUsers) //check - do we need multiple submitHandlers?
+  }
   return (
   <div className='App-wrapper'>
 
