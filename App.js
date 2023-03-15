@@ -1,4 +1,7 @@
 import './App.css';
+import React, {useState, useEffect} from 'react';
+// import {authCheck} from "./src/utils";
+// import {getTokenFromCookie} from "./src/utils";
 
 function App() {
   
@@ -47,22 +50,6 @@ function App() {
     <div className='ToDoContainer'>
       <div className='ActiveToDo'>
         <h3 id='ActiveToDoHeader'>Active To-Do List</h3> 
-       <ul>
-        {todos.length ? (
-          todos.map(({ _id, task, completed }, index) => (
-            <li
-              key={_id}
-              onClick={(event) => handleUpdateTodo(event, _id)}
-              className={completed ? "completed" : ""}
-            >
-              {task}{" "}
-              <span onClick={(event) => handleDeleteTodo(event, _id)}>X</span>
-            </li>
-          ))
-        ) : (
-          <p>No tasks yet</p>
-        )}
-      </ul>
       </div>
 
     <div className='DoneToDo'>
