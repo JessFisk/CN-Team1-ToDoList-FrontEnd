@@ -4,6 +4,7 @@ import React, {useState, useEffect} from 'react';
 // import {getTokenFromCookie} from "./src/utils";
 
 import HeaderTitle from './src/components/header/Header';
+import testLogContainer from "./components/logOrSignContainer";
 
 function App() {
   const [user, setuser] = useState({
@@ -59,36 +60,12 @@ function App() {
       <p>{user.username} is logged in</p>
     </div>
 
-    <div HeaderTitle></div>
+    <div className='Header-Wrap'>
+      <HeaderTitle />
+    </div>
 
-    <div className='LogOrSigninContainer'>
-      <div className='registerBox'>
-        <p className='promptText'>username</p>
-        <input></input>
-        <p className='promptText'>email</p>
-        <input></input>
-        <p className='promptText'>password</p>
-        <input></input>
-        <button type='submit'>Register User</button>
-
-      </div>
-      <div className='loginBox'>
-        <p className='promptText'>username</p>
-        <input></input>
-        <p className='promptText'>password</p>
-        <input></input>
-        <button type='submit'>Login</button>
-
-      </div>
-      <div className='logoutBox'>
-        <button>logout</button>
-
-      </div>
-      <div className='messageBox'>
-        <h3>Message area</h3>
-        <p>placeholder text: X has logged in/out</p>
-
-      </div>
+    <div className='TestLoginContainer'>
+    <testLogContainer />
     </div>
     
     <div className='ToDoContainer'>
