@@ -6,6 +6,7 @@ import React, {useState, useEffect} from 'react';
 // import {getTokenFromCookie} from "./common";
 
 import HeaderTitle from "./components/header/Header"
+import Footer from "./components/footer/Footer"
 // import Footer;
 // import ToDoContainer;
 // import LogOrSignContainer;
@@ -94,10 +95,8 @@ function App() {
     </div>
   </div>
   
-  <div className='Footer'>
-  <h1> Sweet Footer</h1>
-  </div>  
-    
+  
+  <Footer/>
     
   </div>
   );
