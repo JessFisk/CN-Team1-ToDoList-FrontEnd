@@ -64,7 +64,7 @@ function App() {
               className={completed ? "completed" : ""}
             >
               {task}{" "}
-              <span onClick={(e) => handleDeleteTodo(_id, e)}>X</span>
+              <span onClick={(e) => handleDeleteTodo(_id)}>X</span>
             </li>
           ))
         ) : (
