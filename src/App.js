@@ -1,9 +1,11 @@
 import './App.css';
 import React, {useState, useEffect} from 'react';
+
+
 // import {authCheck} from "./utils/user";
 // import {getTokenFromCookie} from "./common";
 
-// import Header;
+import HeaderTitle from "./components/header/Header"
 // import Footer;
 // import ToDoContainer;
 // import LogOrSignContainer;
@@ -13,6 +15,7 @@ import React, {useState, useEffect} from 'react';
 
 
 function App() {
+
   //add all the global states back in
 
   //!!!useEffect is correct
@@ -38,10 +41,10 @@ function App() {
   <div className='App-wrapper'>
 
     <div className='login-display'>
-      <p>{user.username} is logged in</p>
+      {/* <p>{user.username} is logged in</p> */}
     </div>
 
-    <div HeaderTitle></div>
+    <HeaderTitle/>
 
     <div className='LogOrSigninContainer'>
       <div className='registerBox'>
