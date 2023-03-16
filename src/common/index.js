@@ -10,5 +10,15 @@ export const writeCookie = (key, value, days = 365) => {
 };
 
 export const getTokenFromCookie = (cookieName) => {
-    
+    const expression = new RegExp (`(?<=${cookieName}=)[^;]*`)
+    console.log(expression);
+
+    try {
+        const cookie = document.cookie.match(expression)[0]
+        console.log(cookie)
+    } catch {
+        console.log("cookie not found")
+
+    }
 }
+
