@@ -3,17 +3,30 @@ import "./LogOrSigninContainer.css";
 import Log from "../log/Log" ;
 import Logout from "../logOut/LogOut";
 
-const LogOrSigninContainer = () => {
-  return (
-    <div className="LogSignContainer-Wrapper">
-      <Register user = {user} setUser ={setUser} />
-      <Log user = {user} setUser = {setUser} />
-      <Logout />
-      <Message message = {message} setMessage = {setMessage} />
+const LogOrSigninContainer = ({
+  user,
+  setUser,
+  setActiveTodos,
+  setDoneTodos,
+  message,
+  setMessage,
+}) => {
+  console.log("logorsign setactivetodos: ", setActiveTodos)
 
-    </div>
+  return (
+    <>
+      <Log user = {user} setUser ={setUser}
+      setActiveTodos = {setActiveTodos} setDoneTodos ={setDoneTodos}
+      />
+      <Sign user = {user} setUser ={setUser} />
+      <Logout setUser = {setUser}
+      setActiveTodos = {setActiveTodos}
+      setDoneTodos = {setDoneTodos}
+      />
+    </>
   )
-}
+  }
+
 export default LogOrSigninContainer;
 
 
