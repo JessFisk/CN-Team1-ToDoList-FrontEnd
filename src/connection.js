@@ -1,6 +1,16 @@
-// CONNECTION TO MYSQL2 REQUIRED
-//const pool = mysql.createPool({     });
+// not sure on connection to mysql2    
+//const mysql = require('mysql2');
 
+// create a connection pool - this will need to be updated to Becrypt
+const pool = mysql.createPool({
+  host: 'localhost',
+  user: 'user',
+  password: 'password',
+  database: 'database_name',
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
+});
 
 
 async function createTodo(task) {
