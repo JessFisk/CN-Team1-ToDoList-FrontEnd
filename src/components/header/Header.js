@@ -1,10 +1,11 @@
 import React from "react";
 import "./Header.css"
 
-const HeaderTitle = () => {
+const Header= () => {
     return (
     <h1> Team 1 To-Do List App</h1>
+    //<p> with user logged in will have to go here now
     )
 }
 
-export default HeaderTitle;
+export default Header;

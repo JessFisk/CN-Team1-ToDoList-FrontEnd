@@ -15,10 +15,13 @@ const LogOrSigninContainer = ({
 
   return (
     <>
+      <h1>Log in</h1>
       <Log user = {user} setUser ={setUser}
       setActiveTodos = {setActiveTodos} setDoneTodos ={setDoneTodos}
       />
+      <h1>Sign in</h1>
       <Sign user = {user} setUser ={setUser} />
+      <h1>Log Out</h1>
       <Logout setUser = {setUser}
       setActiveTodos = {setActiveTodos}
       setDoneTodos = {setDoneTodos}
