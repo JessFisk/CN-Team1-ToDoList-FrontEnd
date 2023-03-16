@@ -1,37 +1,59 @@
-const API_URL = "http://localhost:3000/todos/";
+// CONNECTION TO MYSQL2 REQUIRED
+//const pool = mysql.createPool({     });
+
+
 
 async function createTodo(task) {
-  const response = await fetch(API_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ task })
-  });
-  const newTodo = await response.json();
-  return newTodo;
+  const conn = await pool.getConnection();
+  try {
+    const [rows] = await conn.query('INSERT INTO todos (task) VALUES (?)', [task]);
+    const newTodo = { id: rows.insertId, task };
+    return newTodo;
+  } catch (err) {
+    throw err;
+  } finally {
+    conn.release();
+  }
 }
 
 async function deleteTodo(id) {
-  const response = await fetch(`${API_URL}${id}`, {
-    method: "DELETE"
-  });
-  const message = await response.json();
-  return message;
+  const conn = await pool.getConnection();
+  try {
+    await conn.query('DELETE FROM todos WHERE id = ?', [id]);
+    const message = { message: 'Todo deleted successfully' };
+    return message;
+  } catch (err) {
+    throw err;
+  } finally {
+    conn.release();
+  }
 }
 
 async function updateTodo(id, payload) {
-  const response = await fetch(`${API_URL}${id}`, {
-    method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload)
-  });
-  const newTodo = await response.json();
-  return newTodo;
+  const conn = await pool.getConnection();
+  try {
+    await conn.query('UPDATE todos SET completed = ? WHERE id = ?', [payload.completed, id]);
+    const [rows] = await conn.query('SELECT * FROM todos WHERE id = ?', [id]);
+    const updatedTodo = rows[0];
+    return updatedTodo;
+  } catch (err) {
+    throw err;
+  } finally {
+    conn.release();
+  }
 }
 
 async function getAllTodos() {
-  const response = await fetch(API_URL);
-  const todos = await response.json();
-  return todos;
+  const conn = await pool.getConnection();
+  try {
+    const [rows] = await conn.query('SELECT * FROM todos');
+    const todos = rows.map(todo => ({ id: todo.id, task: todo.task, completed: todo.completed }));
+    return todos;
+  } catch (err) {
+    throw err;
+  } finally {
+    conn.release();
+  }
 }
 
 export default { createTodo, deleteTodo, updateTodo, getAllTodos };
