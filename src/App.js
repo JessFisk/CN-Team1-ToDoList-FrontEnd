@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import APIHelper from "./connection.js";
+import connection from "./connection.js";
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -8,7 +8,7 @@ function App() {
 
   useEffect(() => {
     const fetchTodos = async () => {
-      const todos = await APIHelper.getAllTodos();
+      const todos = await connection.getAllTodos();
       setTodos(todos);
     };
     fetchTodos();
@@ -19,19 +19,19 @@ function App() {
       alert("Please enter a task.");
       return;
     }
-    const newTodo = await APIHelper.createTodo(todoInput.trim());
+    const newTodo = await connection.createTodo(todoInput.trim());
     setTodos([...todos, newTodo]);
     setTodoInput("");
   };
 
   const handleDeleteTodo = async (id) => {
-    await APIHelper.deleteTodo(id);
+    await connection.deleteTodo(id);
     setTodos(todos.filter((todo) => todo._id !== id));
   };
 
   const handleUpdateTodo = async (id) => {
     const todoToUpdate = todos.find((todo) => todo._id === id);
-    const updatedTodo = await APIHelper.updateTodo(id, {
+    const updatedTodo = await connection.updateTodo(id, {
       completed: !todoToUpdate.completed,
     });
     setTodos(
