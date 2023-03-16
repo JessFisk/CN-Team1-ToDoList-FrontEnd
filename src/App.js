@@ -1,52 +1,59 @@
 import './App.css';
 import {useState, useEffect} from 'react';
-// import {authCheck} from "./utils/user";
-// import {getTokenFromCookie} from "./common";
+// import {authCheck} from "./utils/user"; <--not written yet
+// import {getTokenFromCookie} from "./common"; <-- not written yet
 
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import ToDoContainer from "./components/ToDoContainer/ToDoContainer";
-import LogOrSignContainer from "./components/ToDoContainer/ToDoContainer";
+import LogOrSignContainer from "./components/logOrSign/logOrSignContainer/LogOrSignContainer";
 import MessageContainer from "./components/messageContainer/MessageContainer";
 
 function App() {
-  //add all the global states back in
+  // const user = [user, setUser] = useState(null);
+  // const activeTodos = [activeTodos, setActiveTodos] = useState([]);
+  // const doneTodos = [doneTodos, setDoneTodos] = useState([]);
+  // const message = [message, setMessage] = useState("everthing is awesome");
+  //!!! not defined or used yet!!!
 
-  const user = [user, setUser] = useState(null);
-  const activeTodos = [activeTodos, setActiveTodos] = useState([]);
-  const doneTodos = [doneTodos, setDoneTodos] = useState([]);
-  const message = [message, setMessage] = useState("everthing is awesome");
-
-  //!!!useEffect is correct
-  useEffect(() =>{
-    if (document.cookie){
-      let token = getTokenFromCookie("jwt");
+  //!!! not defined or used yet!!!
+  // useEffect(() =>{
+  //   if (document.cookie){
+  //     let token = getTokenFromCookie("jwt");
     
-    if (token ===false) {
-      setuser(null);
-    } else {
-      loginWithToken(token)
-    }
-    } 
-  }, []);
+  //   if (token ===false) {
+  //     setuser(null);
+  //   } else {
+  //     loginWithToken(token)
+  //   }
+  //   } 
+  // }, []);
 
   // const loginWithToken = async (token) => {
+  //!!! add the function !!!
   //}
-  //!!! add the function
 
   return (
     <>
-      <Header user = {user}/>
+      <Header/>
+      {/* ^user = {user} */}
       <div className='User-Ops-Wrapper'>
         <LogOrSignContainer 
-        //user, setuser, setactive and setdone states
+        // user = {user} setUser = {setUser}
+        // setActiveTodos = {setActiveTodos}
+        // setDoneTodos = {setDoneTodos}
         />
-        <MessageContainer message={message} />
+        <MessageContainer 
+        // message={message} 
+        />
       </div>
 
       <div className='Todo-Wrapper'>
         <ToDoContainer
-        //activeTodos, setActiveTodos, doneTodos, setDoneTodos, user, message, setMessage states
+        // activeTodos = {activeTodos} setActiveTodos = {setActiveTodos}
+        // doneTodos = {doneTodos} setDoneTodos = {setDoneTodos}
+        // user = {user}
+        // message = {message} setMessage = {setMessage}
         />
       </div>
       <Footer />

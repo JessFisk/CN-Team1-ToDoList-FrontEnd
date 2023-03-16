@@ -3,7 +3,7 @@ import "./ToDoContainer.css"
 
 const ToDoContainer= () => {
     return (
-    <h1> Message will go here</h1>
+    <h1> To-do lists go here</h1>
     )
 }
 
