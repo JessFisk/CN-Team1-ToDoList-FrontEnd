@@ -1,58 +1,40 @@
 import './App.css';
 import React, {useState, useEffect} from 'react';
-// import {authCheck} from "./src/utils";
-// import {getTokenFromCookie} from "./src/utils";
+// import {authCheck} from "./utils/user";
+// import {getTokenFromCookie} from "./common";
 
-import HeaderTitle from './src/components/header/Header';
+// import Header;
+// import Footer;
+// import ToDoContainer;
+// import LogOrSignContainer;
+// import MessageContainer;
+
+
+
 
 function App() {
-  const [user, setuser] = useState({
-    username: null,
-    email: null,
-    password: null,
-  });
-  const [users, setusers] = useState();
+  //add all the global states back in
 
-  const [ActiveToDo, setActiveToDo] = useState();
-
+  //!!!useEffect is correct
   // useEffect(() =>{
   //   if (document.cookie){
   //     let token = getTokenFromCookie("jwt");
     
   //   if (token ===false) {
-  //     setuser({
-  //       username: null,
-  //       email: null,
-  //       password: null,
-  //     });
+  //     setuser(null);
   //   } else {
   //     loginWithToken(token)
   //   }
   //   } 
   // }, []);
 
-  const loginWithToken = async (token) => {
-    // const persistentUser = await authCheck(token);
-    // await setUser(persistentUser.user)
-  }
+  // const loginWithToken = async (token) => {
+  //}
+  //!!! add the function
 
-  const logOut = (e) => {
-    e.preventdefault()
-    setUser({
-      username: null,
-      email: null,
-      token: null,
-    });
-    setusers(null);
-    // document.cookie = "jwt_token=;" double check the code for this
-  };
-
-  const submitHandler = async (e) => {
-    e.preventdefault();
-    const cookieName = "jwt_token";
-    setusers(await getAllUsers) //check - do we need multiple submitHandlers?
-  }
   return (
+    //completely overhaul to use components not divs
+    //NB to self: some might be on other branch?
   <div className='App-wrapper'>
 
     <div className='login-display'>
