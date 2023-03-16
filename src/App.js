@@ -1,9 +1,7 @@
 import './App.css';
+
 import React, { useState, useEffect } from 'react';
 
-
-// import {authCheck} from "./utils/user";
-// import {getTokenFromCookie} from "./common";
 
 import HeaderTitle from "./components/header/Header"
 import Footer from "./components/footer/Footer"
@@ -14,12 +12,29 @@ import DoneTodoContainer from "./components/DonetodoListsContainer/doneTodoListC
 
 
 
+// import {authCheck} from "./utils/user"; <--not written yet
+// import {getTokenFromCookie} from "./common"; <-- not written yet
+
+
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
+import ToDoContainer from "./components/ToDoContainer/ToDoContainer";
+import LogOrSignContainer from "./components/logOrSign/logOrSignContainer/LogOrSignContainer";
+import MessageContainer from "./components/messageContainer/MessageContainer";
 
 function App() {
 
+
   //add all the global states back in
 
-  //!!!useEffect is correct
+  // const user = [user, setUser] = useState(null);
+  // const activeTodos = [activeTodos, setActiveTodos] = useState([]);
+  // const doneTodos = [doneTodos, setDoneTodos] = useState([]);
+  // const message = [message, setMessage] = useState("everthing is awesome");
+  //!!! not defined or used yet!!!
+
+
+  //!!! not defined or used yet!!!
   // useEffect(() =>{
   //   if (document.cookie){
   //     let token = getTokenFromCookie("jwt");
@@ -33,8 +48,8 @@ function App() {
   // }, []);
 
   // const loginWithToken = async (token) => {
+  //!!! add the function !!!
   //}
-  //!!! add the function
 
   return (
     //completely overhaul to use components not divs
