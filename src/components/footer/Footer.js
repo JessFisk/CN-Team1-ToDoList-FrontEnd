@@ -1,9 +1,11 @@
 import React from "react";
 import "./Footer.css"
 
-const Footer= () => {
+
+const Footer = () => {
     return (
-    <h1> Sweet Footer</h1>
+    <h1 id="footer"> Sweet Footer </h1>
+
     )
 }
 
